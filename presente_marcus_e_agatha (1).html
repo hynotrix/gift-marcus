@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Marcus - Configurações</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fontes: Fira Code para o código, Playfair e Inter para a carta -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-code { font-family: 'Fira Code', monospace; }
+        .font-serif-title { font-family: 'Playfair Display', serif; }
+        
+        /* Cores do Tema VS Code */
+        .ts-brace { color: #ffd700; }
+        .ts-key { color: #9cdcfe; }
+        .ts-string { color: #ce9178; }
+        .ts-colon { color: #d4d4d4; }
+        .ts-comment { color: #6a9955; font-style: italic; }
+        
+        /* Oculta scrollbar mas permite rolar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-[#1e1e1e] transition-colors duration-1000 ease-in-out min-h-screen w-full overflow-x-hidden">
+
+    <!-- ==========================================
+         VISÃO 1: EDITOR DE CÓDIGO
+         ========================================== -->
+    <div id="editor-view" class="flex flex-col items-center justify-center min-h-screen p-4 sm:p-8 transition-all duration-700 ease-in-out transform">
+        
+        <!-- Janela do Editor -->
+        <div class="w-full max-w-2xl bg-[#252526] rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden border border-[#333]">
+            <!-- Cabeçalho da janela -->
+            <div class="bg-[#323233] px-4 py-3 flex items-center border-b border-[#1e1e1e]">
+                <div class="flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-[#ff5f56]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#ffbd2e]"></div>
+                    <div class="w-3 h-3 rounded-full bg-[#27c93f]"></div>
+                </div>
+                <div class="ml-6 flex">
+                    <div class="bg-[#1e1e1e] text-[#9cdcfe] font-code text-xs sm:text-sm px-4 py-1.5 rounded-t-md transform translate-y-[12px]">
+                        config_amor.json
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Conteúdo do Código -->
+            <div class="p-6 sm:p-8 bg-[#1e1e1e] overflow-x-auto no-scrollbar">
+<pre class="font-code text-sm sm:text-base leading-relaxed text-[#d4d4d4]">
+<span class="ts-comment">// Inicializando módulo de relacionamento à distância...</span>
+<span class="ts-brace">{</span>
+  <span class="ts-key">"namorado"</span><span class="ts-colon">:</span> <span class="ts-string">"Marcus"</span>,
+  <span class="ts-key">"namorada"</span><span class="ts-colon">:</span> <span class="ts-string">"Agatha"</span>,
+  <span class="ts-key">"local_marcus"</span><span class="ts-colon">:</span> <span class="ts-string">"São Paulo, SP"</span>,
+  <span class="ts-key">"local_agatha"</span><span class="ts-colon">:</span> <span class="ts-string">"Rio de Janeiro, RJ"</span>,
+  <span class="ts-key">"ping_distancia"</span><span class="ts-colon">:</span> <span class="ts-string">"430 km"</span>,
+  <span class="ts-key">"data_primeiro_login"</span><span class="ts-colon">:</span> <span class="ts-string">"21/12/2024"</span>,
+  <span class="ts-key">"atividade_principal"</span><span class="ts-colon">:</span> <span class="ts-string">"Jogar juntos"</span>,
+  <span class="ts-key">"status_servidor"</span><span class="ts-colon">:</span> <span class="ts-string">"100% apaixonados"</span>,
+  <span class="ts-key">"mensagem_oculta"</span><span class="ts-colon">:</span> <span class="ts-string">"[CRIPTOGRAFADA]"</span>
+<span class="ts-brace">}</span>
+</pre>
+            </div>
+        </div>
+        
+        <button onclick="executeAmor()" class="mt-8 px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-code text-sm sm:text-base rounded-lg shadow-[0_0_15px_rgba(22,163,74,0.4)] hover:shadow-[0_0_25px_rgba(22,163,74,0.6)] transition-all duration-300 transform hover:-translate-y-1 focus:outline-none">
+            > Compilar Amor
+        </button>
+    </div>
+
+    <!-- ==========================================
+         VISÃO 2: CARTA ROMÂNTICA + CALENDÁRIO
+         ========================================== -->
+    <div id="romantic-view" class="hidden opacity-0 flex-col items-center justify-start min-h-screen py-12 px-4 sm:px-8 transition-opacity duration-1000 ease-in-out relative z-10 w-full max-w-4xl mx-auto space-y-8">
+        
+        <!-- CARTA -->
+        <div class="bg-white/80 backdrop-blur-md w-full p-8 sm:p-12 rounded-2xl shadow-2xl border border-white/50">
+            <h1 class="font-serif-title text-3xl sm:text-4xl md:text-5xl text-rose-600 mb-6 text-center">
+                Feliz aniversário, amor! 🎉
+            </h1>
+            
+            <div class="text-gray-700 text-base sm:text-lg leading-relaxed space-y-4">
+                <p>Amor, primeiramente quero te agradecer por ter entrado na minha vida, já vai fazer 2 anos que nos conhecemos mas é como se eu te conhecesse desde que nasci. Obrigada por fazer minha vida melhor!</p>
+                <p>É muito doido pensar que se eu não entrasse naquele app aquele dia a gente nunca teria se conhecido, é bizarro imaginar que eu conheci o amor da minha vida em um lugar esquisito daqueles. Eu não vejo a hora de estarmos juntos e poder de fato demonstrar o quanto te amo, eu não sei se por mensagem passou de fato o que estou sentindo, mas é como se todos os problemas do mundo desaparecessem e ficasse só o meu amor por você, é como se em meio a um mar absolutamente escuro você fosse o farol que me guia. Eu sei que não sou a pessoa mais fácil de lidar e que não sou a melhor namorada do mundo, mas quero que saiba que eu me esforço pra isso e que um dia quero chegar a ser.</p>
+                <p>Enfim vida, isso é algo que eu estava pensando há alguns dias e ia fazer mais detalhadamente porque achei que era sábado, mas você me lembrou que é hoje então tive que fazer "com pressa".</p>
+                <p>Caso tenha algum erro por favor ignora, você sabe que não entendo absolutamente nada de programação e embora eu esteja usando IA, não sei o que está certo ou não kkkk</p>
+                <p>De qualquer forma, parabéns pelo seu dia, parabéns por existir e ser essa pessoa tão incrível, parabéns por ser tão fácil de amar e saiba que eu te amo com meu corpo e alma. Espero que possamos comemorar mais anos e uma vida juntos. Eu amo você, feliz aniversário!</p>
+            </div>
+            
+            <div class="mt-10 text-right">
+                <p class="font-serif-title text-xl sm:text-2xl text-rose-600 italic">
+                    Com todo meu amor,<br>
+                    Agatha ❤️
+                </p>
+            </div>
+        </div>
+
+        <!-- CALENDÁRIO INFINITO -->
+        <div class="bg-white/90 backdrop-blur-md w-full p-6 sm:p-8 rounded-2xl shadow-2xl border border-white/50">
+            <div class="flex justify-between items-center mb-6">
+                <button onclick="changeMonth(-1)" class="p-2 text-rose-600 hover:bg-rose-100 rounded-full transition-colors focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <h2 id="calendar-title" class="font-serif-title text-2xl sm:text-3xl text-rose-600 font-bold uppercase tracking-wide">
+                    Novembro 2026
+                </h2>
+                <button onclick="changeMonth(1)" class="p-2 text-rose-600 hover:bg-rose-100 rounded-full transition-colors focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+
+            <!-- Dias da Semana -->
+            <div class="grid grid-cols-7 gap-2 sm:gap-4 mb-4 text-center font-bold text-gray-500 text-sm sm:text-base">
+                <div>DOM</div><div>SEG</div><div>TER</div><div>QUA</div><div>QUI</div><div>SEX</div><div>SÁB</div>
+            </div>
+
+            <!-- Grid de Dias do Mês -->
+            <div id="calendar-grid" class="grid grid-cols-7 gap-2 sm:gap-4 text-center">
+                <!-- Preenchido via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL DE MÚSICAS E MENSAGENS
+         ========================================== -->
+    <div id="modal" class="fixed inset-0 bg-black/60 z-50 hidden flex-col items-center justify-center backdrop-blur-sm p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-2xl p-6 sm:p-10 max-w-md w-full shadow-2xl relative text-center transform scale-95 transition-transform duration-300" id="modal-content">
+            
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-rose-600 transition-colors focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            
+            <p id="modal-date" class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">01/01/2026</p>
+            
+            <div class="mb-6">
+                <svg class="w-12 h-12 mx-auto text-rose-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+                <p id="modal-message" class="font-serif-title text-xl text-gray-800 italic leading-relaxed">
+                    "Mensagem"
+                </p>
+            </div>
+            
+            <div class="bg-rose-50 rounded-xl p-4 border border-rose-100">
+                <p class="text-xs text-rose-400 font-bold uppercase tracking-wider mb-1">Música do Dia</p>
+                <p id="modal-song" class="text-rose-700 font-semibold text-lg">Música - Artista</p>
+            </div>
+            
+            <a id="modal-youtube-link" href="#" target="_blank" class="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-full shadow-lg transition-colors focus:outline-none">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+                Ouvir no YouTube
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Transição entre telas
+        function executeAmor() {
+            const editorView = document.getElementById('editor-view');
+            const romanticView = document.getElementById('romantic-view');
+            const body = document.body;
+
+            editorView.classList.add('opacity-0', '-translate-y-12');
+
+            setTimeout(() => {
+                editorView.classList.add('hidden');
+                editorView.classList.remove('flex');
+                
+                body.classList.remove('bg-[#1e1e1e]');
+                body.classList.add('bg-gradient-to-br', 'from-pink-100', 'to-rose-200');
+
+                romanticView.classList.remove('hidden');
+                romanticView.classList.add('flex');
+                
+                // Força o relayout antes de animar opacidade
+                void romanticView.offsetWidth;
+                
+                romanticView.classList.remove('opacity-0');
+                romanticView.classList.add('opacity-100');
+
+                // Renderiza o calendário ao entrar na tela
+                renderCalendar();
+            }, 700);
+        }
+
+        // =====================================
+        // LÓGICA DO CALENDÁRIO E MODAL
+        // =====================================
+        
+        // Inicia na data atual do usuário.
+        let currentDate = new Date(); 
+        
+        const monthNames = [
+            "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", 
+            "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+        ];
+
+        // Lista de ~50 músicas românticas
+        const allRomanticMessages = [
+            { song: "Pra Você Guardei o Amor - Nando Reis", msg: "Guardo os meus melhores sorrisos para quando estou com você." },
+            { song: "Meu Abrigo - Melim", msg: "Você é o meu lugar seguro no mundo inteiro." },
+            { song: "Fica - Anavitória", msg: "O tempo voa quando estamos juntos, só queria pausar o relógio." },
+            { song: "De Janeiro a Janeiro - Nando Reis", msg: "Te amo mais a cada dia, independentemente da distância." },
+            { song: "Partilhar - Rubel", msg: "Quero partilhar a vida boa e todos os momentos com você." },
+            { song: "Aliança - Tribalistas", msg: "Nossa conexão é mais forte que qualquer distância." },
+            { song: "Te Assumi Pro Brasil - Matheus & Kauan", msg: "Minha melhor escolha foi você." },
+            { song: "Coisa Linda - Tiago Iorc", msg: "Você é a coisa mais linda que já aconteceu na minha vida." },
+            { song: "Ainda Bem - Thiaguinho", msg: "Ainda bem que te encontrei, agora sou mais feliz." },
+            { song: "Amor I Love You - Marisa Monte", msg: "Cada detalhe seu me faz te amar ainda mais." },
+            { song: "Velha Infância - Tribalistas", msg: "Você é a minha melhor companhia, meu amor." },
+            { song: "Singular - Anavitória", msg: "Nosso amor é único, é singular." },
+            { song: "Dois Rios - Skank", msg: "Nossos caminhos se cruzaram e agora somos um só rio." },
+            { song: "Só Você - Fábio Jr.", msg: "Demorei muito pra te encontrar, agora eu quero só você." },
+            { song: "Como É Grande o Meu Amor Por Você - Roberto Carlos", msg: "Nem mesmo o céu nem as estrelas explicam meu amor." },
+            { song: "Dia Branco - Geraldo Azevedo", msg: "Se você vier pro que der e vier comigo..." },
+            { song: "Girassol - Cidade Negra", msg: "Você é o meu sol, a luz dos meus dias." },
+            { song: "Aonde Quer Que Eu Vá - Paralamas do Sucesso", msg: "Levo você no pensamento pra onde quer que eu vá." },
+            { song: "Último Romance - Los Hermanos", msg: "Encontrei em você meu último e verdadeiro romance." },
+            { song: "Um Amor Puro - Djavan", msg: "O que sinto por você é o amor mais puro que existe." },
+            { song: "Pela Luz dos Olhos Teus - Tom Jobim", msg: "Me perco e me encontro na luz dos seus olhos." },
+            { song: "O Leãozinho - Caetano Veloso", msg: "Gosto tanto de você, meu amor." },
+            { song: "Flor e o Beija-Flor - Henrique & Juliano", msg: "Como a flor precisa do beija-flor, eu preciso de você." },
+            { song: "Céu Azul - Charlie Brown Jr", msg: "Hoje eu acordei feliz, porque sonhei com você." },
+            { song: "Dona - Roupa Nova", msg: "Você é a dona do meu coração." },
+            { song: "Medo Bobo - Maiara & Maraisa", msg: "Tanto amor guardado, agora é todo seu." },
+            { song: "Toda Forma de Amor - Lulu Santos", msg: "Nosso amor é a forma mais bonita que eu já vi." },
+            { song: "Te Esperando - Luan Santana", msg: "Eu te esperei a vida toda." },
+            { song: "Linda Demais - Roupa Nova", msg: "Você é linda demais para eu não te amar." },
+            { song: "Eu Sei Que Vou Te Amar - Vinicius de Moraes", msg: "Eu sei que vou te amar por toda a minha vida." },
+            { song: "Que Sorte A Nossa - Matheus & Kauan", msg: "Tanta gente no mundo e a gente se encontrou." },
+            { song: "Anjo - Kelly Key", msg: "Você caiu do céu direto pros meus braços." },
+            { song: "Coração Pirata - Roupa Nova", msg: "Meu coração ancorou no seu porto seguro." },
+            { song: "As Coisas Tão Mais Lindas - Cássia Eller", msg: "Você faz tudo ao meu redor ficar mais lindo." },
+            { song: "Por Onde Andei - Nando Reis", msg: "Eu não consigo imaginar meus dias sem você." },
+            { song: "All Star - Nando Reis", msg: "Nossa sintonia é perfeita, como a gente combinou." },
+            { song: "Só os Loucos Sabem - Charlie Brown Jr", msg: "A gente sabe o valor desse nosso amor." },
+            { song: "Fácil - Jota Quest", msg: "Fácil é te amar todos os dias." },
+            { song: "Ainda Bem - Marisa Monte", msg: "Ainda bem que agora a gente tá junto." },
+            { song: "Logo Eu - Jorge & Mateus", msg: "Logo eu, que achava que não ia me apaixonar, caí de amores por você." },
+            { song: "Onde Você Mora? - Cidade Negra", msg: "Você mora dentro do meu coração." },
+            { song: "Tudo Que Você Quiser - Luan Santana", msg: "Eu faço tudo pra te ver feliz." },
+            { song: "A Dois Passos Do Paraíso - Blitz", msg: "Estar com você é como estar no paraíso." },
+            { song: "Meu Bem Querer - Djavan", msg: "Você é o meu bem querer, meu amor." },
+            { song: "Tem Que Ser Você - Victor & Leo", msg: "Tinha que ser você, não poderia ser mais ninguém." },
+            { song: "Pra Ser Sincero - Engenheiros do Hawaii", msg: "Sinceramente, não vivo sem você." },
+            { song: "Se Eu Não Te Amasse Tanto Assim - Ivete Sangalo", msg: "Se não fosse você, eu não saberia o que é amar." },
+            { song: "A Paz - Gilberto Gil", msg: "Você trouxe a paz que meu coração procurava." },
+            { song: "Morena - Los Hermanos", msg: "A cada dia você me encanta mais." },
+            { song: "Nosso Nó(s) - Sandy", msg: "Nossos caminhos deram um nó impossível de desfazer." },
+            { song: "Trevo (Tu) - Anavitória", msg: "Tu é trevo de quatro folhas, minha sorte." },
+            { song: "Pupila - Anavitória", msg: "Quando você me olha, tudo ao redor para." },
+            { song: "Deixa - Lagum", msg: "Deixa eu te fazer a pessoa mais feliz do mundo." },
+            { song: "Dois Corações - Melim", msg: "Dois corações que batem no mesmo ritmo." }
+        ];
+
+        // Lista dinâmica de músicas para remover e não repetir
+        let availableMessages = [...allRomanticMessages];
+        
+        // Objeto cache para armazenar as músicas de datas já abertas
+        const assignedDays = {}; 
+
+        function renderCalendar() {
+            const monthIndex = currentDate.getMonth();
+            const year = currentDate.getFullYear();
+            
+            document.getElementById('calendar-title').innerText = `${monthNames[monthIndex]} ${year}`;
+            
+            const firstDayOfMonth = new Date(year, monthIndex, 1).getDay(); // 0 (Dom) a 6 (Sáb)
+            const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+            
+            const grid = document.getElementById('calendar-grid');
+            grid.innerHTML = '';
+            
+            // Espaços vazios no início do mês
+            for(let i = 0; i < firstDayOfMonth; i++) {
+                const emptyDiv = document.createElement('div');
+                emptyDiv.className = 'p-3';
+                grid.appendChild(emptyDiv);
+            }
+            
+            // Dias do mês
+            for(let day = 1; day <= daysInMonth; day++) {
+                const dayBtn = document.createElement('button');
+                dayBtn.className = 'p-2 sm:p-3 aspect-square flex items-center justify-center rounded-xl hover:bg-rose-500 hover:text-white hover:shadow-lg transition-all text-gray-700 font-semibold focus:outline-none';
+                dayBtn.innerText = day;
+                dayBtn.onclick = () => openModal(day, monthIndex, year);
+                
+                // Realça o dia de hoje (opcional, puramente estético)
+                const today = new Date();
+                if (day === today.getDate() && monthIndex === today.getMonth() && year === today.getFullYear()) {
+                    dayBtn.classList.add('bg-rose-100', 'text-rose-700', 'border', 'border-rose-300');
+                }
+                
+                grid.appendChild(dayBtn);
+            }
+        }
+
+        function changeMonth(direction) {
+            currentDate.setMonth(currentDate.getMonth() + direction);
+            renderCalendar();
+        }
+
+        function openModal(day, monthIndex, year) {
+            const dateStr = `${String(day).padStart(2, '0')}/${String(monthIndex + 1).padStart(2, '0')}/${year}`;
+            let chosenMessage = "";
+            let chosenSong = "";
+
+            // REGRA ESPECÍFICA DO DIA 05/11 (Mês index 10 no JavaScript = Novembro)
+            if (day === 5 && monthIndex === 10) {
+                chosenMessage = "Sempre que estiver se sentindo pra baixo, ouça essa musica e tenha certeza que sempre q eu escuto ela, é pensando em vc";
+                chosenSong = "Equalize - Pitty";
+            } else {
+                // Checa no cache se já foi sorteado para esta data exata
+                if (assignedDays[dateStr]) {
+                    chosenMessage = assignedDays[dateStr].msg;
+                    chosenSong = assignedDays[dateStr].song;
+                } else {
+                    // Se as músicas acabarem, recarrega a lista
+                    if (availableMessages.length === 0) {
+                        availableMessages = [...allRomanticMessages];
+                    }
+                    
+                    // Sorteia e remove da lista de disponíveis (splice) para não repetir
+                    const randomIndex = Math.floor(Math.random() * availableMessages.length);
+                    const selected = availableMessages.splice(randomIndex, 1)[0];
+                    
+                    chosenMessage = selected.msg;
+                    chosenSong = selected.song;
+                    
+                    // Salva no cache com a data como chave
+                    assignedDays[dateStr] = { msg: chosenMessage, song: chosenSong };
+                }
+            }
+
+            // Atualiza os textos no Modal
+            document.getElementById('modal-date').innerText = dateStr;
+            document.getElementById('modal-message').innerText = `"${chosenMessage}"`;
+            document.getElementById('modal-song').innerText = chosenSong;
+            
+            // Define o link do YouTube baseando-se no nome da música
+            const ytQuery = encodeURIComponent(chosenSong);
+            document.getElementById('modal-youtube-link').href = `https://www.youtube.com/results?search_query=${ytQuery}`;
+
+            // Exibe o modal com animação
+            const modal = document.getElementById('modal');
+            const modalContent = document.getElementById('modal-content');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Força reflow para CSS animations ativarem corretamente
+            void modal.offsetWidth;
+            
+            modal.classList.remove('opacity-0');
+            modal.classList.add('opacity-100');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            const modalContent = document.getElementById('modal-content');
+            
+            modal.classList.remove('opacity-100');
+            modal.classList.add('opacity-0');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+
+        // Fecha o modal ao clicar fora da caixa branca
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
